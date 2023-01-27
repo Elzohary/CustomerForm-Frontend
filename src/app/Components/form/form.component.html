@@ -1,0 +1,76 @@
+<form #form="ngForm" >
+    <div class="form-content">
+        <div class="form-groups">
+            <div class="form-group">
+                <label for="name">Customer Name*</label>
+                <input id="name"
+                        #nameInput="ngModel" 
+                        required maxlength="100" 
+                        [(ngModel)]="customerBinding.name"
+                        name="name" 
+                        type="text" 
+                        placeholder="Ex: Ahmed">
+                <small [hidden]="nameInput.valid || nameInput.untouched"> Name is required</small>
+            </div>
+    
+            <div class="form-group">
+                <label for="class">Class*</label>
+                <input id="class" #classInput="ngModel" required maxlength="2" [(ngModel)]="customerBinding.class" name="class" type="text" placeholder="Ex: A">
+                <small [hidden]="classInput.valid || classInput.untouched"> Class is required </small>
+                
+            </div>
+    
+            <div class="form-group">
+                <label for="phone">Phone*</label>
+                <input id="phone" #phoneInput="ngModel" required [(ngModel)]="customerBinding.phone" name="phone" type="text" placeholder="Ex: 0123456789">
+                <small [hidden]="phoneInput.valid || phoneInput.untouched"> Phone is required </small>
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input id="email" #emailInput="ngModel" required [(ngModel)]="customerBinding.email" name="email" type="email" placeholder="Ex: name@example.com">
+                <small [hidden]="emailInput.valid || emailInput.untouched"> Email is required </small>
+            </div>
+    
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <input id="comment" [(ngModel)]="customerBinding.comment" name="comment" type="text">
+            </div>
+        </div>
+    
+        <div class="buttons">
+            <button class="btn btn-regular" (click)="save()" [disabled]="!isSaveBtnClickable">Save</button>
+            <button class="btn btn-regular" (click)="update()" [disabled]="!isUpdateBtnClickable">Update</button>
+            <button class="btn btn-clear" (click)="clear()">Clear</button>
+        </div>
+        
+        <div class="grid" #child>
+            <app-grid 
+                (selectedItemEvent)="onRowSelected($event)"
+                [dataChanged]="gridData">
+            </app-grid>
+        </div>
+    
+        <div class="buttons">
+            <button class="btn btn-delete" (click)="delete()" [disabled]="isSaveBtnClickable">Delete</button>
+        </div>
+
+    </div>
+</form>
+
+
+
+
+
+<!-- 
+    - Once the user selects a row from the grid it should automatically populate the fields in the top of the page
+
+    - If the data is loaded from the grid the save button should be disabled and the update button should be enabled 
+
+    - Pressing the clear button should clear the top fields and disabled update button and enable the save button 
+
+    - Pressing the delete button should delete the highlighted row in the grid
+
+-->
+
+

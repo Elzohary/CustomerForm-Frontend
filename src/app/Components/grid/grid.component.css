@@ -1,0 +1,65 @@
+.main {
+    overflow: hidden;
+}
+
+table {
+    border: 3px solid #0f172a;
+    border-radius: 0.6em;
+    width: 100%;
+    height: 100%;
+    margin-block: 1em;
+    border-collapse:collapse;
+}
+
+th {
+    background-color: #e2e8f0;
+    padding: 0.6em;
+}
+
+
+th:hover {
+    background-color: #1e293b;
+    color: white;
+}
+
+span {
+    font-weight: 300;
+    font-size: 0.8em;
+    margin-left: 0.5em;
+}
+
+tr {
+    transition: 0.1s ease-in;
+}
+
+.select-tr {
+    cursor: pointer;
+}
+
+.selected {
+    background-color: antiquewhite;
+}
+
+tr:hover {
+    background-color: #f1f5f9;
+}
+
+td {
+    font-size: 0.9em;
+    padding: 0.5em;
+    height: 1em;
+    border: 1px solid;
+
+}
+
+.tdID {    
+    overflow: scroll;
+    font-size: 1vw;
+}
+
+@media screen and (width <= 1080px) {
+    .main {
+        max-width: 88vw;
+        overflow-x: scroll;
+    }
+}

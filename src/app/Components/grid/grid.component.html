@@ -1,0 +1,51 @@
+<div class="main">
+    <table>
+        <thead>
+            <tr matSort (matSortChange)="sortData($event)">
+                <th mat-sort-header="id">
+                    ID 
+                    <span *ngIf="activeColoumn == 'id'">{{selectedColoumn}}</span>
+                </th>
+    
+                <th mat-sort-header="name">
+                    Customer Name 
+                    <span *ngIf="activeColoumn == 'name'">{{selectedColoumn}}</span>
+                </th>
+    
+                <th mat-sort-header="class">
+                    Class 
+                    <span *ngIf="activeColoumn == 'class'">{{selectedColoumn}}</span>
+                </th>
+    
+                <th mat-sort-header="phone">
+                    Phone 
+                    <span *ngIf="activeColoumn == 'phone'">{{selectedColoumn}}</span>
+                </th>
+    
+                <th mat-sort-header="email">
+                    Email 
+                    <span *ngIf="activeColoumn == 'email'">{{selectedColoumn}}</span>
+                </th>
+    
+                <th mat-sort-header="comment">
+                    Comment 
+                    <span *ngIf="activeColoumn == 'comment'">{{selectedColoumn}}</span>
+                </th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr class="select-tr"
+                [class.select-tr]="item.id != ''"  
+                *ngFor="let item of sortedData; let idx=index;" 
+                (click)="selectRow(item)">
+                    <td class="tdID">{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.class }}</td>
+                    <td>{{ item.phone }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

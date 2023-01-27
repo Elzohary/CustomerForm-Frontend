@@ -1,0 +1,128 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 2em;
+}
+
+.form-content {
+  background-color: #f8fafc;
+  padding: 2em;
+  border-radius: 1em;
+}
+
+.form-groups {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-block: 2em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 40%;
+  flex-grow: 1;
+  width: fit-content;
+}
+
+label {
+  font-size: 0.85em;
+}
+
+input {
+  padding-inline: 1em;
+  padding-block: 0.3em;
+  font-weight: 600;
+  border-radius: 0.3em;
+  border: 2px solid #0f172a;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input:focus-visible {
+  border: 2px solid #0c4a6e;
+  outline: none;
+}
+
+small {
+  color: #a94442;
+  font-size: 0.7em;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #16a34a; /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #075985; /* red */
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.btn {
+  padding-inline: 0.9em;
+  padding-block: 0.3em;
+  margin: 0.7em;
+  border-radius: 0.8em;
+  border: none;
+  transition: 0.1s ease-in;
+}
+
+.btn-regular {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+.btn-regular:hover {
+  background-color: #0c4a6e;
+  cursor: pointer;
+}
+
+.btn-regular:disabled {
+  background-color: #d4d4d8;
+  color: #f1f5f9;
+  cursor: not-allowed;
+}
+
+.btn-clear {
+  border: 2px solid #0f172a;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.btn-clear:hover {
+  cursor: pointer;
+  border: 2px solid #27272a;
+  color: #f8fafc;
+  background-color: #27272a;
+}
+
+.btn-delete {
+  background-color: #7f1d1d;
+  padding-block: 0.5em;
+  color: #f8fafc;
+}
+
+.btn-delete:hover {
+  cursor: pointer;
+  background-color: #b91c1c;
+}
+
+.btn-delete:disabled {
+  background-color: #fecaca;
+  cursor: not-allowed;
+}
+
+@media screen and (width <= 560px) {
+  input {
+    width: 60vw;
+  }
+}

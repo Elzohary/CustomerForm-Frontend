@@ -1,0 +1,13 @@
+svg {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: -1;
+    transform: translate(35%, -10%);
+  }
+
+.title {
+    text-align: center;
+    color: #38bdf8;
+    margin-block: 1em;
+}
