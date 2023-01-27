@@ -45,7 +45,7 @@ export class FormComponent implements OnInit {
   save() {
     this.customerService.addCustomer(this.customerBinding).subscribe({
       next: (customer) => {
-        this._snackBar.open(`${this.customerBinding} is Added!`, 'Ok', {duration: 2000});
+        this._snackBar.open(`${this.customerBinding.name} is Added!`, 'Ok', {duration: 2000});
         this.clear();
       },
       error: (err) => {
