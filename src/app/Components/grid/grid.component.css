@@ -47,8 +47,8 @@ tr:hover {
 td {
     font-size: 0.9em;
     padding: 0.5em;
-    height: 1em;
-    border: 1px solid;
+    height: 1.2em;
+    border: 1px solid #d4d4d4;
 
 }
 

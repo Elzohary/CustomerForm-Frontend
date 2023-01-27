@@ -47,6 +47,7 @@ export class FormComponent implements OnInit {
       next: (customer) => {
         this._snackBar.open(`${this.customerBinding.name} is Added!`, 'Ok', {duration: 2000});
         this.clear();
+        this.getAllCustomers();
       },
       error: (err) => {
         console.log(err);
