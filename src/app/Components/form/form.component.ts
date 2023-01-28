@@ -61,7 +61,6 @@ export class FormComponent implements OnInit {
     this.isUpdateBtnClickable = false;
     this.isDeleteBtnClickable = false;
     this.getAllCustomers();
-    this._snackBar.open(`Cleared!`, 'Ok', {duration: 1000});
   }
 
   update() {
