@@ -1,8 +1,7 @@
-import { Component, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ICustomer } from 'src/app/Models/i-customer';
 import { CustomerService } from 'src/app/Services/customer.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import { GridComponent } from '../grid/grid.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -19,7 +18,6 @@ export class FormComponent implements OnInit {
   isSaveBtnClickable : boolean = true;
   isUpdateBtnClickable : boolean = false;
   isDeleteBtnClickable : boolean = false;
-  @ViewChild('child') gridChild! : GridComponent ;
 
   constructor(private customerService : CustomerService, private _snackBar: MatSnackBar) {
   }
@@ -50,7 +48,7 @@ export class FormComponent implements OnInit {
         this.getAllCustomers();
       },
       error: (err) => {
-        console.log(err);
+        this._snackBar.open(`Something wrong happened, check your entered data!`, 'Ok', {duration: 3000});
       }
     });
   }
@@ -62,6 +60,8 @@ export class FormComponent implements OnInit {
     this.isSaveBtnClickable = true;
     this.isUpdateBtnClickable = false;
     this.isDeleteBtnClickable = false;
+    this.getAllCustomers();
+    this._snackBar.open(`Cleared!`, 'Ok', {duration: 1000});
   }
 
   update() {
@@ -73,6 +73,7 @@ export class FormComponent implements OnInit {
         this.isUpdateBtnClickable = false;
       },
       error: (err) => {
+        this._snackBar.open(`Something wrong happened, check your entered data!`, 'Ok', {duration: 3000});
         console.log(err);
       }
     });
@@ -84,6 +85,9 @@ export class FormComponent implements OnInit {
         this._snackBar.open(`${this.selectedCustomer.name} is deleted!`, 'Ok', {duration: 2000});
         this.clear();
         this.getAllCustomers();
+      },
+      error: (err) => {
+        this._snackBar.open(`Something wrong happened, ${this.selectedCustomer} still exists!`, 'Ok', {duration: 3000});
       }
     });
     
@@ -108,4 +112,5 @@ export class FormComponent implements OnInit {
       comment: ''
     };
   }
+
 }

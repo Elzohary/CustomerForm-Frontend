@@ -26,6 +26,7 @@ export class GridComponent implements OnInit, OnChanges {
   }
   
   ngOnChanges(): void {
+    this.gridData = this.dataChanged;
     this.sortedData = this.dataChanged;
     this.rowClicked = this.RrowClicked;
   }
@@ -72,34 +73,47 @@ export class GridComponent implements OnInit, OnChanges {
     this.sortedData = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
 
+      console.log(sort);
       switch (sort.active) {
         case 'id':{
           this.setAZ(sort);
+          if(a.id === '') return 1;
+          if(b.id === '') return -1;
           return compare(a.id, b.id, isAsc);
         }
 
         case 'name': {
           this.setAZ(sort);
+          if(a.name === '') return 1;
+          if(b.name === '') return -1;
           return compare(a.name, b.name, isAsc);
         }
           
         case 'class': {
           this.setAZ(sort);
+          if(a.class === '') return 1;
+          if(b.class === '') return -1;
           return compare(a.class, b.class, isAsc);
         }
           
         case 'phone': {
           this.setAZ(sort);
+          if(a.phone === '') return 1;
+          if(b.phone === '') return -1;
           return compare(a.phone, b.phone, isAsc);
         }
           
         case 'email': {
           this.setAZ(sort);
+          if(a.email === '') return 1;
+          if(b.email === '') return -1;
           return compare(a.email, b.email, isAsc);
         }
           
         case 'comment': {
           this.setAZ(sort);
+          if(a.comment === '') return 1;
+          if(b.comment === '') return -1;
           return compare(a.comment, b.comment, isAsc);
         }
           
@@ -128,11 +142,12 @@ export class GridComponent implements OnInit, OnChanges {
 
 }
 
-function compare(
-  a: number | string, 
-  b: number | string,
-  isAsc: boolean
-  ) {
-      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-};
+function compare(a: string, b: string, isAsc: boolean) {
+  if (a === '') {
+      return b === '' ? 0 : (isAsc ? 1 : -1);
+  } else if (b === '') {
+      return isAsc ? -1 : 1;
+  }
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
 
