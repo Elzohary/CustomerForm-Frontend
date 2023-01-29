@@ -42,8 +42,6 @@ export class GridComponent implements OnInit, OnChanges {
         this.sortedData = this.gridData;
         
         if(customers.length < 5) {
-          this.gridData = customers;
-          this.sortedData = this.gridData;
           for(let i = 0 ; i = 5 - customers.length ; i++) {
             this.sortedData.push(this.emptyCustomer);
           }
