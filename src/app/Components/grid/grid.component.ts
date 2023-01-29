@@ -143,11 +143,6 @@ export class GridComponent implements OnInit, OnChanges {
 }
 
 function compare(a: string, b: string, isAsc: boolean) {
-  if (a === '') {
-      return b === '' ? 0 : (isAsc ? 1 : -1);
-  } else if (b === '') {
-      return isAsc ? -1 : 1;
-  }
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
 
